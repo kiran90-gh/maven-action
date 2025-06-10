@@ -12,11 +12,11 @@ jobs:
     steps:
       - uses: actions/checkout@v3  # Checkout your code from the repository
 
-      - name: Set up JDK 17  # Change version if needed
-        uses: actions/setup-java@v4
+      - name: Upload JAR
+        uses: actions/upload-artifact@v4
         with:
-          java-version: '17'
-          cache: 'maven'  # Optionally cache Maven packages
+          name: my-app
+          path: target/*.jar
 
       - name: Build with Maven
         run: mvn package -DskipTests  # Optionally add -DskipTests to skip tests
